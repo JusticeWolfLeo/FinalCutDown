@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+</head>
+<body>
+<h1>Admin Page</h1>
+<h2>Users</h2>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.username}"></td>
+    <td th:text="${user.email}"></td>
+    <td></td>
+  </tr>
+</table>
+<h2>Posts</h2>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Delete</th>
+  </tr>
+  <tr th:each="post : ${posts}">
+    <td th:text="${post.title}"></td>
+    <td th:text="${post.date}"></td>
+    <td th:text="${post.description}"></td>
+    <td><form th:action="@{/delete-post/{id}(id=${post.id})}" method="post">
+      <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

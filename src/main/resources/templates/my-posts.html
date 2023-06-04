@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>My Posts</title>
+</head>
+<body>
+<h1>My Posts</h1>
+<a href="/create-post">Create Post</a>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr th:each="post : ${myPosts}">
+    <td th:text="${post.title}"></td>
+    <td th:text="${post.date}"></td>
+    <td th:text="${post.description}"></td>
+    <td><a th:href="@{/edit-post/{id}(id=${post.id})}">Edit</a></td>
+    <td><a th:href="@{/delete-post/{id}(id=${post.id})}">Delete</a></td>
+  </tr>
+</table>
+</body>
+</html>
