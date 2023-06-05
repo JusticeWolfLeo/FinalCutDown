@@ -19,7 +19,7 @@ public class PostService {
     }
 
     public List<Post> getPostsByUsername(String name) {
-        return postRepository.findAllByAuthor_Username(name);
+        return postRepository.findAllByauthorname(name);
     }
 
     public List<Post> getAllPosts() {

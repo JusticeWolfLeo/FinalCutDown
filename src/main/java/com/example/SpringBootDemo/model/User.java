@@ -16,7 +16,6 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String username;
     private String password;
     @Transient
     private String confirmPassword;
@@ -65,11 +64,12 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return name;
     }
 
+
     public void setUsername(String username) {
-        this.username = username;
+        this.name = name;
     }
 
 
